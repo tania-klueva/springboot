@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${user.getName()} + ${user.getSurname()}"></h1>
+    <ul>
+        <li th:text="${user.getId()}"></li>
+        <li th:text="${user.getName()}"></li>
+        <li th:text="${user.getSurname()}"></li>
+        <li th:text="${user.getContactList()}"></li>
+    </ul>
+
+    <h1>Update</h1>
+
+    <form method="post">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="surname" placeholder="surname">
+        <input type="submit">
+    </form>
+
+    <a th:href="'/user/' + ${user.getId()} + '/contacts'">Контакти</a>
+
+    <a th:href="'/user/' + ${user.getId()} + '/delete'">Видалити</a>
+
+
+</body>
+</html>
